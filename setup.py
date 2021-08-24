@@ -5,10 +5,10 @@ from setuptools import setup
 # version = ".".join([str(v) for v in version_tuple])
 
 setup(
-    name='django-xadmin',
+    name='xadmin-django',
     version='3.0.1',
     description='Based on xadmin.Drop-in replacement of Django admin comes with lots of goodies, fully extensible with plugin support, pretty UI based on Twitter Bootstrap.',
-    long_description=open('README.rst', encoding='utf-8').read(),
+    long_description='Based on xadmin.Drop-in replacement of Django admin comes with lots of goodies, fully extensible with plugin support, pretty UI based on Twitter Bootstrap.',
     author='ldc',
     author_email='1257309054@qq.com',
     license=open('LICENSE', encoding='utf-8').read(),
