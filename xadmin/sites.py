@@ -175,8 +175,12 @@ class AdminSite(object):
                                        "your INSTALLED_APPS setting in order to use the admin application.")
 
         default_template_engine = Engine.get_default()
-        if not ('django.contrib.auth.context_processors.auth' in default_template_engine.context_processors or
-                'django.core.context_processors.auth' in default_template_engine.context_processors):
+        if (
+            'django.contrib.auth.context_processors.auth'
+            not in default_template_engine.context_processors
+            and 'django.core.context_processors.auth'
+            not in default_template_engine.context_processors
+        ):
             raise ImproperlyConfigured("Put 'django.contrib.auth.context_processors.auth' "
                                        "in your TEMPLATE_CONTEXT_PROCESSORS setting in order to use the admin application.")
 
@@ -273,7 +277,7 @@ class AdminSite(object):
             if settings_class:
                 merges.append(settings_class)
             merges.append(klass)
-        new_class_name = ''.join([c.__name__ for c in merges])
+        new_class_name = ''.join(c.__name__ for c in merges)
 
         if new_class_name not in self._admin_view_cache:
             plugins = self.get_plugins(view_class, option_class)
